@@ -1,0 +1,49 @@
+package com.reactive.mono;
+
+import java.util.Arrays;
+import java.util.List;
+
+import org.junit.jupiter.api.Test;
+import org.springframework.boot.test.context.SpringBootTest;
+
+import reactor.core.Disposable;
+import reactor.core.publisher.Flux;
+import reactor.core.publisher.Mono;
+import reactor.util.function.Tuple2;
+
+@SpringBootTest
+class ReactiveMonoApplicationTests {
+
+	@Test
+	void contextLoads() {
+	}
+	
+	@Test
+	void workingwithMono() {
+		
+//		//MONO publisher that have 0 / 1 elements or Items
+//		
+//		Mono<String> obj = Mono.error(new RuntimeException("Error Occured"));
+//		
+//		Mono<String> monoObject = Mono.just("Learn Code With Durgesh")
+//									   .log()
+//									   .then(obj);
+//		
+//		monoObject.subscribe( data ->{
+//			System.out.println("Data is in Mono Object: "+data);
+//		});
+//		
+//		
+//		monoObject.subscribe(System.out:: println);
+		
+		
+		Mono<String> m1 = Mono.just("Durgesh");
+		Mono<String> m2 = Mono.just("Pawar");
+		
+	Mono<Tuple2<String, String>> combineMono = Mono.zip(m1, m2);
+	
+	combineMono.subscribe(System.out::println);
+	
+	}
+
+}

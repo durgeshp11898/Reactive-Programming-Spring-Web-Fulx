@@ -1,0 +1,46 @@
+package com.reactive.mono.controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
+
+import com.reactive.mono.service.UserService;
+
+import reactor.core.publisher.Mono;
+
+@RestController
+@RequestMapping("/users")
+public class UserController {
+
+	@Autowired
+	private UserService userService;
+
+	// CREATE
+	@PostMapping
+	public Mono<User> createUser(@RequestBody User user) {
+		return userService.createUser(user);
+	}
+
+	// READ (by ID)
+	@GetMapping("/{id}")
+	public Mono<User> getUserById(@PathVariable Long id) {
+		return userService.getUserById(id);
+	}
+
+	// READ (by email)
+	@GetMapping("/email")
+	public Mono<User> getUserByEmail(@RequestParam String email) {
+		return userService.getUserByEmail(email);
+	}
+
+	// UPDATE
+	@PutMapping("/{id}")
+	public Mono<User> updateUser(@PathVariable Long id, @RequestBody User user) {
+		return userService.updateUser(id, user);
+	}
+
+	// DELETE
+	@DeleteMapping("/{id}")
+	public Mono<Void> deleteUser(@PathVariable Long id) {
+		return userService.deleteUser(id);
+	}
+}

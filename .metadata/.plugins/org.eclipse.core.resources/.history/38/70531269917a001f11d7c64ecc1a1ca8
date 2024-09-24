@@ -1,0 +1,3 @@
+spring.application.name=ReactiveMono
+
+server.port=8090

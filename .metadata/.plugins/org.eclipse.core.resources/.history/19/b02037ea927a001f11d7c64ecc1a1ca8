@@ -1,0 +1,5 @@
+package com.reactive.mono.repository;
+
+public interface UserRepository {
+
+}

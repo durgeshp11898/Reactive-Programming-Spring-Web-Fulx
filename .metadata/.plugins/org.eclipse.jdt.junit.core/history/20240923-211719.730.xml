@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="ReactiveMonoApplicationTests" project="ReactiveMono" tests="2" started="2" failures="0" errors="0" ignored="0">
+  <testsuite name="com.reactive.mono.ReactiveMonoApplicationTests" time="0.923" displayname="ReactiveMonoApplicationTests" uniqueid="[engine:junit-jupiter]/[class:com.reactive.mono.ReactiveMonoApplicationTests]">
+    <testcase name="workingwithMono" classname="com.reactive.mono.ReactiveMonoApplicationTests" time="0.92" displayname="workingwithMono()" uniqueid="[engine:junit-jupiter]/[class:com.reactive.mono.ReactiveMonoApplicationTests]/[method:workingwithMono()]"/>
+    <testcase name="contextLoads" classname="com.reactive.mono.ReactiveMonoApplicationTests" time="0.002" displayname="contextLoads()" uniqueid="[engine:junit-jupiter]/[class:com.reactive.mono.ReactiveMonoApplicationTests]/[method:contextLoads()]"/>
+  </testsuite>
+</testrun>

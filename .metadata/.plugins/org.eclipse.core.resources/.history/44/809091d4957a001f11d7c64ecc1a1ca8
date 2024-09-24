@@ -1,0 +1,49 @@
+package com.reactive.mono.controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+
+import com.reactive.mono.entity.User;
+import com.reactive.mono.service.UserService;
+
+import reactor.core.publisher.Mono;
+
+@RestController
+@RequestMapping("/users")
+public class UserController {
+
+	@Autowired
+	private UserService userService;
+
+	// Create or Update a User
+	@PostMapping
+	public Mono<ResponseEntity<User>> createUser(@RequestBody User user) {
+		return userService.saveUser(user)
+				.map(savedUser -> ResponseEntity.ok(savedUser));
+	}
+
+	// Get User by ID
+	@GetMapping("/{id}")
+	public Mono<ResponseEntity<User>> getUserById(@PathVariable Long id) {
+		return userService.getUserById(id)
+				.map(ResponseEntity::ok)
+				.defaultIfEmpty(ResponseEntity.notFound().build());
+	}
+
+	// Get User by Email
+	@GetMapping("/email/{email}")
+	public Mono<ResponseEntity<User>> getUserByEmail(@PathVariable String email) {
+		return userService.getUserByEmail(email)
+				.map(ResponseEntity::ok)
+				.defaultIfEmpty(ResponseEntity.notFound().build());
+	}
+
+	// Delete User by ID
+	@DeleteMapping("/{id}")
+	public Mono<ResponseEntity<Void>> deleteUserById(@PathVariable Long id) {
+		return userService.deleteUser(id)
+				.then(Mono.just(ResponseEntity.ok().<Void>build()))
+				.defaultIfEmpty(ResponseEntity.notFound().build());
+	}
+}

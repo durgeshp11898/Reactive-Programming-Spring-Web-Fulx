@@ -1,0 +1,5 @@
+package com.reactive.mono.entity;
+
+public class User {
+
+}

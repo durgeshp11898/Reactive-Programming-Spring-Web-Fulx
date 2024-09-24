@@ -1,0 +1,8 @@
+spring.application.name=ReactiveMono
+# application.properties
+spring.r2dbc.url=r2dbc:mysql://localhost:3306/mydatabase
+spring.r2dbc.username=root
+spring.r2dbc.password=yourpassword
+
+# Optional: Hikari for connection pooling
+spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver

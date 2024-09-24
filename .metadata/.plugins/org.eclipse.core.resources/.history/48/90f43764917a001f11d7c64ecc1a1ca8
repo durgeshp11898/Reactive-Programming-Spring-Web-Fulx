@@ -1,0 +1,55 @@
+# Application configuration
+spring:
+  application:
+    name: reactive-webflux-app
+
+  # R2DBC MySQL Configuration
+  r2dbc:
+    url: r2dbc:mysql://localhost:3306/your_database_name
+    username: your_username
+    password: your_password
+    pool:
+      enabled: true
+      max-size: 10  # Maximum size of the connection pool
+      max-idle-time: 30m  # Maximum idle time before closing a connection
+
+  # JPA (if used for ORM)
+  data:
+    r2dbc:
+      repositories:
+        enabled: true
+
+  # R2DBC Properties
+  r2dbc:
+    properties:
+      sslMode: disabled  # Disable SSL for local development
+
+  # Database initialization scripts
+  sql:
+    init:
+      platform: mysql
+      schema-locations: classpath:schema.sql
+      data-locations: classpath:data.sql
+      continue-on-error: true
+
+  # Logging configuration
+  logging:
+    level:
+      root: INFO
+      org.springframework.web: DEBUG
+      io.r2dbc.spi: DEBUG
+      reactor.core.publisher: DEBUG
+
+  # Server configuration
+  server:
+    port: 8090
+    reactive:
+      session:
+        timeout: 30m  # Session timeout
+      thread-pool:
+        max-size: 200  # Adjust reactive thread pool size based on your requirements
+
+# Custom settings
+custom:
+  app:
+    environment: development

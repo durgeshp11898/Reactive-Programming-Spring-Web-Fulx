@@ -1,0 +1,49 @@
+package com.reactive.mono.controller;
+
+import com.reactive.mono.model.User;
+import com.reactive.mono.service.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
+import reactor.core.publisher.Flux;
+import reactor.core.publisher.Mono;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
+
+@RestController
+@RequestMapping("/users")
+@Tag(name = "User Controller", description = "CRUD operations for Users")
+public class UserController {
+
+    @Autowired
+    private UserService userService;
+
+    @Operation(summary = "Get User by ID")
+    @GetMapping("/{id}")
+    public Mono<User> getUserById(@PathVariable Long id) {
+        return userService.getUserById(id);
+    }
+
+    @Operation(summary = "Get all Users")
+    @GetMapping
+    public Flux<User> getAllUsers() {
+        return userService.getAllUsers();
+    }
+
+    @Operation(summary = "Create a new User")
+    @PostMapping
+    public Mono<User> createUser(@RequestBody User user) {
+        return userService.createUser(user);
+    }
+
+    @Operation(summary = "Update an existing User")
+    @PutMapping("/{id}")
+    public Mono<User> updateUser(@PathVariable Long id, @RequestBody User user) {
+        return userService.updateUser(id, user);
+    }
+
+    @Operation(summary = "Delete a User by ID")
+    @DeleteMapping("/{id}")
+    public Mono<Void> deleteUser(@PathVariable Long id) {
+        return userService.deleteUser(id);
+    }
+}

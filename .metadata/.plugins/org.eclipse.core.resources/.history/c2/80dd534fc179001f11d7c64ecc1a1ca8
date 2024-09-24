@@ -1,0 +1,47 @@
+package com.reactive.mono;
+
+import java.util.Arrays;
+import java.util.List;
+
+import org.junit.jupiter.api.Test;
+import org.springframework.boot.test.context.SpringBootTest;
+
+import reactor.core.Disposable;
+import reactor.core.publisher.Flux;
+import reactor.core.publisher.Mono;
+
+@SpringBootTest
+class ReactiveMonoApplicationTests {
+
+	@Test
+	void contextLoads() {
+	}
+	
+	@Test
+	void workingwithMono() {
+		
+		//MONO publisher that have 0 / 1 elements or Items
+		
+		
+		Mono<String> monoObject = Mono.just("Learn Code With Durgesh")
+									   .log();
+		
+		monoObject.subscribe( data ->{
+			System.out.println("Data is in Mono Object: "+data);
+		});
+		
+		
+		List<String> list = Arrays.asList("Durgesh","Pawar","Bhaur");
+		
+		Flux<List<String>> fluxObject = Flux.just(list).log();
+		
+		fluxObject.subscribe( data ->{
+			  System.out.println(data.get(2)); 
+		});
+		
+		
+		
+		
+	}
+
+}

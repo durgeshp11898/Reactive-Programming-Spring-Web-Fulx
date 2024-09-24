@@ -1,0 +1,5 @@
+package com.reactive.mono.config;
+
+public class SecurityConfig {
+
+}
