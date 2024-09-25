@@ -1,4 +1,3 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<session version="1.0">
-<refactoring comment="Delete resource &apos;ReactiveMono&apos;" deleteContents="true" description="Delete resource &apos;ReactiveMono&apos;" element1="/ReactiveMono" flags="7" id="org.eclipse.ltk.core.refactoring.delete.resources" resources="1" stamp="1727195320566"/>
+<session version="1.0">&#x0A;<refactoring comment="Delete resource &apos;ReactiveMono&apos;" deleteContents="true" description="Delete resource &apos;ReactiveMono&apos;" element1="/ReactiveMono" flags="7" id="org.eclipse.ltk.core.refactoring.delete.resources" resources="1" stamp="1727195320566"/>&#x0A;<refactoring comment="Delete resource &apos;ReactiveFluxDemo&apos;" deleteContents="true" description="Delete resource &apos;ReactiveFluxDemo&apos;" element1="/ReactiveFluxDemo" flags="7" id="org.eclipse.ltk.core.refactoring.delete.resources" resources="1" stamp="1727259283918"/>
 </session>
